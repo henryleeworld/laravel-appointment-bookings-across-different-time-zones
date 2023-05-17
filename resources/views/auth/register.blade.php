@@ -43,7 +43,7 @@
         <div class="mt-4">
             <x-input-label for="timezone" :value="__('Timezone')"/>
             <x-select-input id="timezone" class="block mt-1 w-full" name="timezone" :options="$timezones"
-                            :selected="old('timezone')" :default="$guessedTimezone" required/>
+                            :selected="old('timezone')" required/>
             <x-input-error :messages="$errors->get('timezone')" class="mt-2"/>
         </div>
 
@@ -57,4 +57,15 @@
             </x-primary-button>
         </div>
     </form>
+    <script>
+        setSelectedValue(document.getElementById('timezone'), Intl.DateTimeFormat().resolvedOptions().timeZone);
+        function setSelectedValue(selectObj, valueToSet) {
+            for (var i = 0; i < selectObj.options.length; i++) {
+                if (selectObj.options[i].text == valueToSet) {
+                    selectObj.options[i].selected = true;
+                    return;
+                }
+            }
+        }
+    </script>
 </x-guest-layout>

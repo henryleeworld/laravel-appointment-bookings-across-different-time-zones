@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
-use App\Services\TimezoneService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,8 +23,7 @@ class RegisteredUserController extends Controller
     public function create(): View
     {
         $timezones = timezone_identifiers_list();
-        $guessedTimezone = TimezoneService::guess();
-        return view('auth.register', compact('guessedTimezone', 'timezones'));
+        return view('auth.register', compact('timezones'));
     }
 
     /**
