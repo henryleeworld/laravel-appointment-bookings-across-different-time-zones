@@ -6,10 +6,14 @@ use App\Events\BookingDeletedEvent;
 
 class BookingDeletedListener
 {
-    public function __construct()
-    {
-    }
+    /**
+     * Create the event listener.
+     */
+    public function __construct() {}
 
+    /**
+     * Handle the given event.
+     */
     public function handle(BookingDeletedEvent $event): void
     {
         $event->booking->scheduledNotifications()

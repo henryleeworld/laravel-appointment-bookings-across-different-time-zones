@@ -1,4 +1,4 @@
-# Laravel 10 跨不同時區的預約
+# Laravel 11 跨不同時區的預約
 
 不論您註冊時選擇哪個時區，系統都會以查看預訂的每位使用者所在時區來顯示預訂時間，這種做法除了有助於規劃行程，也能讓您為世界各地的使用者輕鬆建立預訂。
 
@@ -44,11 +44,11 @@ $ php artisan test
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/Cqq0zwx.png)
+![](https://i.imgur.com/nQspcq4.png)
 > 檢查程式碼是否如預期般執行
 
-![](https://i.imgur.com/Bb2PzyV.png)
+![](https://i.imgur.com/gDCvDp9.png)
 > 註冊時設定相對應的時區
 
-![](https://i.imgur.com/cnt9fzV.png)
+![](https://i.imgur.com/GoItCa0.png)
 > 設定開始與結束日期和時間

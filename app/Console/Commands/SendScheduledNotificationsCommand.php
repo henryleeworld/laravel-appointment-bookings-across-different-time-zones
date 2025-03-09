@@ -8,11 +8,24 @@ use Illuminate\Console\Command;
 
 class SendScheduledNotificationsCommand extends Command
 {
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
     protected $signature = 'send:scheduled-notifications';
 
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
     protected $description = 'Sends scheduled notifications to the users';
 
-    public function handle(): void
+    /**
+     * Execute the console command.
+     */
+    public function handle()
     {
         $notificationsToSend = ScheduledNotification::query()
             ->where('sent', false)

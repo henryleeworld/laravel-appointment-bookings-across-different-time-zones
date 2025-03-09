@@ -9,10 +9,14 @@ use Carbon\CarbonImmutable;
 
 class BookingUpdatedListener
 {
-    public function __construct()
-    {
-    }
+    /**
+     * Create the event listener.
+     */
+    public function __construct() {}
 
+    /**
+     * Handle the given event.
+     */
     public function handle(BookingUpdatedEvent $event): void
     {
         $booking = $event->booking;

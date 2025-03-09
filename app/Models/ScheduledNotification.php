@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class ScheduledNotification extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
     protected $fillable = [
         'user_id',
         'notification_class',
@@ -21,21 +26,35 @@ class ScheduledNotification extends Model
         'tries',
     ];
 
-    protected $casts = [
-        'sent' => 'boolean',
-        'processing' => 'boolean',
-    ];
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'sent' => 'boolean',
+            'processing' => 'boolean',
+        ];
+    }
 
     public function send(): void
     {
         dispatch(new ProcessNotificationJob($this->id));
     }
 
+    /**
+     * Get the user that owns the scheduled notification.
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get the parent notifiable model.
+     */
     public function notifiable(): MorphTo
     {
         return $this->morphTo();

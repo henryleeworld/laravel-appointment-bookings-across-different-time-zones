@@ -8,9 +8,9 @@ use App\Notifications\BookingReminder1H;
 use App\Notifications\BookingReminder2H;
 use App\Notifications\BookingReminder5MIN;
 use App\Notifications\BookingStartedNotification;
-use Artisan;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 

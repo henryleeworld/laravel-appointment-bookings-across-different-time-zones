@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Event::listen(
+            BookingCreatedEvent::class,
+            BookingCreatedListener::class,
+        );
+        Event::listen(
+            BookingUpdatedEvent::class,
+            BookingUpdatedListener::class,
+        );
+        Event::listen(
+            BookingDeletedEvent::class,
+            BookingDeletedListener::class,
+        );
     }
 }

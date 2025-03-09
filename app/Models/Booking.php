@@ -13,17 +13,28 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Booking extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
     protected $fillable = [
         'user_id',
         'start',
         'end',
     ];
 
+    /**
+     * Get the user that owns the booking.
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get all of the booking's scheduled notifications.
+     */
     public function scheduledNotifications(): MorphMany
     {
         return $this->morphMany(ScheduledNotification::class, 'notifiable');
